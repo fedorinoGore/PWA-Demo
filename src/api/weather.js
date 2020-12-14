@@ -6,5 +6,5 @@ export const fetchWeather = (query) => {
         ? baseUrl
         : baseUrl + '?' + constructQuery(query)
 
-    return fetch(url)
+    return fetch(url).then(response => response.json())
 }
