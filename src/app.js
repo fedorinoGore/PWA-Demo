@@ -14,9 +14,9 @@ function App() {
                 const data = await fetchWeather(query)
                 setWeather(data)
                 setQuery('')
-                // console.log(data)
             } catch (error) {
-                console.warn(error)
+                console.log("Error: ", error)
+                // throw new Error(error)
             }
         }
     }

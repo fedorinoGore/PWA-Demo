@@ -6,5 +6,11 @@ export const fetchWeather = (query) => {
         ? baseUrl
         : baseUrl + '?' + constructQuery(query)
 
-    return fetch(url).then(response => response.json())
+    return fetch(url)
+        .then(response => response.json())
+        .then(json => {
+            if (json.cod && json.cod === '404') {
+                throw new Error(json.message)
+            }
+        })
 }
